@@ -4,6 +4,12 @@ import os
 
 execution_path = os.getcwd()
 outputFile = os.path.join(execution_path , 'output.csv')
+
+try:
+    os.remove(outputFile)
+except OSError:
+    pass
+
 states = ['AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO']
 
 f = open(outputFile, 'a')
