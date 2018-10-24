@@ -1,23 +1,18 @@
-anjos = [{ 'indx': '1', 'name': 'Bom', 'lies': False, 'takesToHeaven': True, 'takesToHell': False },
+angels = [{ 'indx': '1', 'name': 'Bom', 'lies': False, 'takesToHeaven': True, 'takesToHell': False },
 { 'indx': '2', 'name': 'Mal', 'lies': True, 'takesToHeaven': False, 'takesToHell': True }]
 
 def doQuestion():
-    response = []
+    angel_responses = []
     print('É verdade que você pode me levar para o céu ou para o inferno?')
-    for anjo in anjos:
-        if (anjo['takesToHeaven'] or anjo['takesToHell']) and (anjo['lies'] is False):
-            response.append({ 'indx': anjo['indx'], 'name': anjo['name'], 'response': 'SIM' })
-        else:
-            response.append({ 'indx': anjo['indx'], 'name': anjo['name'], 'response': 'NÃO' })
+    for a in angels:
+        resp = (a['takesToHeaven'] or a['takesToHell']) and (a['lies'] is False)
+        angel_responses.append({ 'indx': a['indx'], 'name': a['name'], 'response': resp })
 
-    return response
+    return angel_responses
 
 response = doQuestion()
 
 print(response, '\n-----------------')
-yes = list(filter(lambda x: x['response'] == 'SIM', response))[0]
-seq = ['O anjo que está dizendo a verdade é o anjo ', str(yes['indx'])]
-finalresponse = ''.join(seq)
+yes = list(filter(lambda x: x['response'] is True, response))[0]
+finalresponse = ''.join(['O anjo que está dizendo a verdade é o anjo ', str(yes['indx'])])
 print(finalresponse)
-
-    
