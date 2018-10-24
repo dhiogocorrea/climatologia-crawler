@@ -4,6 +4,8 @@ angels = [{ 'indx': '1', 'name': 'Bom', 'lies': False, 'takesToHeaven': True, 't
 def doQuestion():
     angel_responses = []
     print('É verdade que você pode me levar para o céu ou para o inferno?')
+    print('Lógica: Se leva para o céu ou para o inferno e não mente, então TRUE, senão FALSE.\n')
+
     for a in angels:
         resp = (a['takesToHeaven'] or a['takesToHell']) and (a['lies'] is False)
         angel_responses.append({ 'indx': a['indx'], 'name': a['name'], 'response': resp })
