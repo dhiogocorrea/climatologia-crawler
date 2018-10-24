@@ -32,7 +32,7 @@ def process(city, state, url):
 
         if soup is not None:
             table = soup.findAll('table', { 'role': 'grid'})
-            if table is not None:
+            if table is not None and len(table) > 0:
                 for tr in table[0].findAll('tr'):
                     if tr.td is not None:
                         tds = tr.findAll('td')
